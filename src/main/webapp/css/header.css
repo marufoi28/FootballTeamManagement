@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.header{
+	display: flex;
+	background-color: #4B6FB4;
+	height: 10vh;
+	align-items: center;
+}
+
+.page-title {
+	color: #D9D9D9;
+	margin: 0 2rem;
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+/* navエリア */
+.nav-list {
+	display: flex;
+}
+
+.nav-list li {
+	margin: 0 15px;
+}
+
+.nav-list a {
+	color: #D9D9D9;
+	font-size: 1rem;
+}

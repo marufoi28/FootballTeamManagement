@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+/* 検索条件エリア */
+.search-area {
+	width: 40%;
+	margin: 0.6rem auto 0.8rem 0.4rem;
+	padding : 20px;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.search-table th {
+	font-weight: 700;
+	padding : 1rem;
+	text-align: center;
+}
+
+.search-table th, td {
+	border: 1px solid #ddd;
+	vertical-align: middle;
+}
+
+.search-name-input{
+	width: 100%;
+	padding: 8px;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+.search-position-input {
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+.search-age-input {
+	padding: 8px;
+}
+
+.search-table th:nth-child(1), 
+.search-table td:nth-child(1) {
+  width: 20%;
+}
+
+.search-table td:nth-child(1) {
+	padding-left: 8px;
+	height: 2rem;
+}
+
+.search-table th:nth-child(2), 
+.search-table td:nth-child(2) {
+  width: 80%;
+}
+
+.search-btn-area {
+	margin: 20px 0 0 10px;
+}
