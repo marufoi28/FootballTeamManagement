@@ -1,16 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 
 <div class="dashboard-layout">
 <%@ include file="menu.jsp" %>
 <main class="main">
   <h2 class="page-header">
     <c:choose>
-      <c:when test="${empty player.getPlayerId()}">新規登録</c:when>
+      <c:when test="${empty player.getPlayerId()}">新規</c:when>
       <c:otherwise>編集</c:otherwise>
     </c:choose>
   </h2>
+  <c:if test="${not empty errorMessages}">
+    <div class="error-message-area">
+	  <ul>
+	    <c:forEach var="errorMessage" items="${errorMessages}">
+	      <li class="error-message">${errorMessage}</li>
+	    </c:forEach>
+	  </ul>
+	 </div>
+	</c:if>
   <form action="<c:choose>
   				  <c:when test="${empty player.getPlayerId()}">AddPlayerServlet</c:when>
   				  <c:otherwise>EditPlayerServlet</c:otherwise>
@@ -36,7 +45,7 @@
 	
 	<div class="form-item">
   	  <label for="birthDate">誕生日</label>
-  	  <input type="date" name="birthDate" value="${player.getBirthDate() }" required />
+  	  <input type="date" name="birthDate" value="${player.getBirthDate() != null ? player.getBirthDate() : '2000-01-01'}" required />
   	</div>
   	
   	<div class="form-item">
@@ -79,7 +88,10 @@
   		  <c:otherwise>編集</c:otherwise>
   	    </c:choose>
   	  </button>
+  	  <button type="button" class="btn btn-back back">戻る</button>
   	</div>
   </form>
 </main>
 </div>
+<%@ include file="../layout/footer.jsp" %>
+<script src="<c:url value='/js/playerForm.js' />" type="text/javascript" defer></script>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 <div class="dashboard-layout">
 <%@ include file="menu.jsp" %>
 <main class="main">
@@ -162,7 +162,22 @@
     </tbody>
   </table>
 </div>
+<c:set var="baseUrl" value="SearchPlayerServlet?searchName=${searchName}&searchHasLicense=${searchHasLicense}&searchPosition=${searchPosition}" />
+
+<div class="pagination-area">
+  <c:if test="${currentPage > 1}">
+    <a class="pagination-link" href="${baseUrl}&currentPage=${currentPage - 1}">前へ</a>
+  </c:if>
+
+  <c:forEach var="i" begin="1" end="${totalPages}">
+    <a class="pagination-link ${currentPage == i ? 'active' : ''}" href="${baseUrl}&currentPage=${i}">${i}</a>
+  </c:forEach>
+
+  <c:if test="${currentPage < totalPages}">
+    <a class="pagination-link" href="${baseUrl}&currentPage=${currentPage + 1}">次へ</a>
+  </c:if>
+</div>
 </main>
 </div>
-<%@ include file="footer.jsp" %>
+<%@ include file="../layout/footer.jsp" %>
 <script src="<c:url value='/js/script.js' />" type="text/javascript" defer></script>

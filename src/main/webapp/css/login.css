@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/* ログイン */
+.login-area {
+	display: flex;
+	justify-content: center;
+	margin: 16px;
+}
+
+.login-area input{
+	margin: 0.7rem 0;
+}
+
+.login-list-area {
+	margin: 10px;
+}
+
+.login-list {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 300px;
+}
+
+.login-list li {
+	margin-left: 20px;
+}

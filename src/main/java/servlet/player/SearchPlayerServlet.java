@@ -20,7 +20,7 @@ import service.player.PlayerService;
 public class SearchPlayerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final int MAX_PLAYERS_PER_PAGE = 10;
-	private static final String INDEX_JSP_PATH = "/jsp/index.jsp";
+	private static final String INDEX_JSP_PATH = "/jsp/player/index.jsp";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
