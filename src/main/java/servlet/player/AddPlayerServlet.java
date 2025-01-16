@@ -20,7 +20,7 @@ import service.player.PlayerService;
 
 public class AddPlayerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String PLAYER_FORM_JSP_PATH = "/jsp/playerForm.jsp";
+	private static final String PLAYER_FORM_JSP_PATH = "/jsp/player/playerForm.jsp";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
