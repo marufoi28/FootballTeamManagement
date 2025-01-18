@@ -76,3 +76,51 @@ closes.forEach((close, index) => {
 		masks[index].animate(hideKeyframes, options);
 	});
 });
+
+const toggleButton = document.querySelector("#toggleButton");
+const fileManagementArea = document.querySelector("#fileManagementArea");
+
+document.addEventListener("DOMContentLoaded", function() {
+	const state = localStorage.getItem("fileManagementState");
+	if(state === "active"){
+		fileManagementArea.classList.add("active");
+		fileManagementArea.classList.remove("noactive");
+	} else {
+		fileManagementArea.classList.add("noactive");
+		fileManagementArea.classList.remove("active");
+	}
+	
+	toggleButton.addEventListener("click", function () {
+	    fileManagementArea.classList.toggle("active");
+	    fileManagementArea.classList.toggle("noactive");
+
+	    const isActive = fileManagementArea.classList.contains("active");
+	    localStorage.setItem("fileManagementState", isActive ? "active" : "noactive");
+	});
+});
+
+function downloadCSV(){
+	fetch('ExportCSVServlet', {method: 'GET'})
+		.then(response => {
+			if(response.ok){
+				return response.blob();
+			} else {
+				throw new Error("CSVダウンロードに失敗しました");
+			}
+		})
+		.then(blob => {
+			const url = window.URL.createObjectURL(blob);
+			const a = document.createElement('a');
+			a.href = url;
+			a.download = 'player.csv';
+			document.body.appendChild(a);
+			a.click();
+			a.remove();
+			window.URL.revokeObjectURL(url);
+			
+			document.querySelector('#message').innerText = "ファイルを正常にダウンロードしました";
+		})
+		.catch(error => {
+			document.querySelector('#message').innerText = error.message;
+		})
+}

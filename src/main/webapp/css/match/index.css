@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/* テーブルエリア */
+.match-list-table-area {
+	width: 90%;
+    margin: 20px;
+	border-collapse: collapse;
+	text-align: left;
+	box-sizing: border-box;
+}
+
+/* テーブルスタイル */
+.match-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 14px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.match-list-table th, .match-list-table td {
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.match-list-table th {
+    background-color: #4B6FB4;
+    color: white;
+    font-weight: bold;
+}
+
+.match-list-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.match-list-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}

@@ -16,7 +16,7 @@ import util.JdbcUtil;
 import util.SqlFileLoader;
 
 public class PlayerSearchDAO {
-	private static final int MAX_PLAYERS_PER_PAGE = 10;
+	private static final int MAX_PLAYERS_PER_PAGE = 15;
 	public static final String SQL_PLAYER = "sql/player";
 	
 	public List<Player> getPlayers(SearchPlayer searchPlayer){

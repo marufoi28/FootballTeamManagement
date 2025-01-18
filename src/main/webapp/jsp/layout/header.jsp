@@ -14,12 +14,14 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/playerForm.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/searchResult.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/fileManageArea.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/match/index.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
 <body>
   <header class="header">
-    <h1 class="page-title">
+    <h1 class="application-title">
       <a href="HomeAccountController">ウエスタン</a>
     </h1>
     <nav class="nav">

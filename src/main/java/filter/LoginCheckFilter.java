@@ -26,14 +26,11 @@ public class LoginCheckFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		
-		//HttpServletRequestにキャスト
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		
-		//セッションを取得
 		HttpSession session = httpRequest.getSession();
 		
-		//ログイン状態を確認
 		LoginService loginLogic = new LoginService();
 		boolean isLoggedIn = false;
 		
