@@ -24,7 +24,6 @@ public class AddPlayerServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(PLAYER_FORM_JSP_PATH);
 		dispatcher.forward(request, response);
 	}

@@ -3,7 +3,7 @@
 /* 検索条件エリア */
 .search-area {
 	width: 40%;
-	margin: 0.2rem auto 0.8rem 0.4rem;
+	margin: 0 auto 0.8rem 0.4rem;
 	padding : 20px;
 	background-color: #f9f9f9;
 	border: 1px solid #ddd;

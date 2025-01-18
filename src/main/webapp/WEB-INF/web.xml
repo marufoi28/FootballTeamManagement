@@ -159,4 +159,44 @@
     <servlet-name>HomeAccountController</servlet-name>
     <url-pattern>/HomeAccountController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ImportCSVServlet</display-name>
+    <servlet-name>ImportCSVServlet</servlet-name>
+    <servlet-class>servlet.file.ImportCSVServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ImportCSVServlet</servlet-name>
+    <url-pattern>/ImportCSVServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ExportCSVServlet</display-name>
+    <servlet-name>ExportCSVServlet</servlet-name>
+    <servlet-class>servlet.file.ExportCSVServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ExportCSVServlet</servlet-name>
+    <url-pattern>/ExportCSVServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SearchMatchServlet</display-name>
+    <servlet-name>SearchMatchServlet</servlet-name>
+    <servlet-class>servlet.match.SearchMatchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchMatchServlet</servlet-name>
+    <url-pattern>/SearchMatchServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddMatchServlet</display-name>
+    <servlet-name>AddMatchServlet</servlet-name>
+    <servlet-class>servlet.match.AddMatchServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddMatchServlet</servlet-name>
+    <url-pattern>/AddMatchServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

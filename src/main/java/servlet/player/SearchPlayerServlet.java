@@ -19,7 +19,7 @@ import service.player.PlayerService;
 
 public class SearchPlayerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final int MAX_PLAYERS_PER_PAGE = 10;
+	private static final int MAX_PLAYERS_PER_PAGE = 15;
 	private static final String INDEX_JSP_PATH = "/jsp/player/index.jsp";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,7 +50,7 @@ public class SearchPlayerServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	
-	private void saveToSession(HttpSession session,SearchPlayer searchPlayer) {
+	public static void saveToSession(HttpSession session,SearchPlayer searchPlayer) {
 		
 		session.setAttribute("searchPlayerId", searchPlayer.getPlayerId());
 		session.setAttribute("searchName", searchPlayer.getSearchName());
@@ -64,7 +64,7 @@ public class SearchPlayerServlet extends HttpServlet {
 		session.setAttribute("currentPage", searchPlayer.getCurrentPage());
 	}
 	
-	private SearchPlayer createSearchPlayer(HttpServletRequest request,HttpSession session) {
+	public static SearchPlayer createSearchPlayer(HttpServletRequest request,HttpSession session) {
 		
 		/* リクエストパラメータの取得 */
 		String requestPlayerId = request.getParameter("searchPlayerId");
@@ -122,7 +122,7 @@ public class SearchPlayerServlet extends HttpServlet {
 		return searchPlayer;
 	}
 	
-	private List<Integer> getPositionIdList(List<String> positionIdListStr){
+	private static List<Integer> getPositionIdList(List<String> positionIdListStr){
 		List<Integer> positionIdList = new ArrayList<>();
 		for(String positionId : positionIdListStr) {
 			positionIdList.add(Integer.parseInt(positionId));

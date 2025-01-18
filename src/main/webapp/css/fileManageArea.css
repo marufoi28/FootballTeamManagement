@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+/* ファイル操作エリア */
+/* 検索条件 & ファイル入出力 エリア */
+
+.search-file-area {
+	display: flex;
+	width: 100%;
+}
+
+/* ファイル入出力エリア */
+.file-management-area {
+	width: 40%;
+	margin-right: auto;
+	padding : 20px;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	margin-bottom: 20px;
+}
+
+.menu-title {
+	font-weight: 700;
+}
+.file-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.file-table th,
+.file-table td {
+	padding: 12px;
+	border: 1px solid #ddd;
+	width: 40%;
+}
+
+.file-table td {
+	text-align: center;
+}
+
+.file-table th {
+	font-weight: 700;
+}
+
+/* エラーメッセージエリア */
+.file-operation-message-area {
+	color: red;
+	margin: 10px;
+}
+
+/* ファイル入出力エリアの表示・非表示を切り替えるために使用 */
+.active {
+  display: block;
+}
+
+.noactive {
+  display: none;
+}
