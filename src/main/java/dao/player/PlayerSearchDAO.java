@@ -108,10 +108,10 @@ public class PlayerSearchDAO {
 	}
 	
 	private void buildOrderByClause(StringBuilder sql, List<Object> params, SearchPlayer searchPlayer) {
-		if(searchPlayer.getSortColumn() != null && searchPlayer.getSortOrder() != null) {
-			appendOrderBy(sql, searchPlayer);
-			appendLimitOffset(sql, params, searchPlayer);
+		if(searchPlayer.getSortColumn() != null && !searchPlayer.getSortColumn().isEmpty() && searchPlayer.getSortOrder() != null && !searchPlayer.getSortOrder().isEmpty()) {
+			appendOrderBy(sql, params, searchPlayer);
 		}
+		appendLimitOffset(sql, params, searchPlayer);
 	}
 	
 	private void appendLimitOffset(StringBuilder sql, List<Object> params, SearchPlayer searchPlayer) {
@@ -121,8 +121,10 @@ public class PlayerSearchDAO {
 		params.add(offset);
 	}
 	
-	private void appendOrderBy(StringBuilder sql, SearchPlayer searchPlayer) {
-		sql.append(" ORDER BY ").append(searchPlayer.getSortColumn()).append(" ").append(searchPlayer.getSortOrder());
+	private void appendOrderBy(StringBuilder sql, List<Object> params, SearchPlayer searchPlayer) {
+		sql.append(" ORDER BY ? ?");
+		params.add(searchPlayer.getSortColumn());
+		params.add(searchPlayer.getSortOrder());
 	}
 	
 	private List<Object> buildWhereClause(StringBuilder sql, SearchPlayer searchPlayer){

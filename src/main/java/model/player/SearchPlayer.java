@@ -74,7 +74,11 @@ public class SearchPlayer {
 		this.sortOrder = sortOrder;
 	}
 	public Integer getCurrentPage() {
-		return currentPage;
+		if(currentPage == 0) {
+			return 1;
+		} else {
+			return currentPage;
+		}
 	}
 	public void setCurrentPage(Integer currentPage) {
 		this.currentPage = currentPage;
