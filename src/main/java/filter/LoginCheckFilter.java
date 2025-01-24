@@ -43,7 +43,7 @@ public class LoginCheckFilter implements Filter {
 
 		        String path = httpRequest.getRequestURI();
 
-		        if (isLoggedIn || path.startsWith(httpRequest.getContextPath() + "/LoginServlet") || path.startsWith(httpRequest.getContextPath() + "/AddAccountServlet")) {
+		        if (isLoggedIn || path.startsWith(httpRequest.getContextPath() + "/LoginServlet") || path.startsWith(httpRequest.getContextPath() + "/AddAccountServlet") ) {
 		            chain.doFilter(request, response); 
 		            return; 
 		        }

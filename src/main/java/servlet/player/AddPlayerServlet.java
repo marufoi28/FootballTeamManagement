@@ -11,7 +11,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import model.player.AddPlayer;
 import model.player.Player;
@@ -30,7 +29,7 @@ public class AddPlayerServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-			HttpSession session = request.getSession();
+//			HttpSession session = request.getSession();
 			request.setCharacterEncoding("UTF-8");
 			AddPlayer addPlayer = createAddPlayer(request);
 			saveRequest(request, addPlayer);

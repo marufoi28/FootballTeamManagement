@@ -26,7 +26,6 @@
   				</c:choose>" method="post">
   	  <input type="hidden" name="matchId" value="${ match.getMatchId() }" required />
   	  
-  	  
   	  <div class="form-item">
   	    <label for="eventDate">開催日</label>
   	  	<input type="date" name="eventDate" value="${ match.getEventDate() != null ? match.getEventDate() : currentDate }" required />
@@ -56,6 +55,20 @@
   	    </select>
   	  </div>
   	  
+  	  <div class="form-item">
+  	    <label class="block" for="eventStartTime">キックオフ</label>
+  	    <input type="time" id="eventStartTime" name="eventStartTime" value="${ match.getEventStartTime() != null ? match.getEventStartTime() : '12:00'}">
+  	  </div>
+  	  
+  	  <div class="submit-area">
+  	    <button type="submit" class="btn btn-submit">
+  	  	  <c:choose>
+  		    <c:when test="${empty match.getMatchId()}">登録</c:when>
+  		    <c:otherwise>編集</c:otherwise>
+  	      </c:choose>
+  	  </button>
+  	    <button type="button" class="btn btn-back back">戻る</button>
+  	  </div>
   	</form>
 </main>
 </div>

@@ -56,4 +56,27 @@ public class MatchSearchDAO {
 		match.setOpponent(new Opponent(rs.getInt("opponent_id"), rs.getString("opponent_name")));
 		return match;
 	}
+	
+	public Match getMatch(int matchId) throws Exception {
+		Match match = new Match();
+		String sqlQuery = SqlFileLoader.getSqlQuery("selectMatch", SQL_MATCH);
+		StringBuilder sql = new StringBuilder(sqlQuery);
+		
+		JdbcUtil.loadJDBCDriver();
+		
+		try(Connection conn = DatabaseConnection.getConnection();
+			PreparedStatement pStmt = conn.prepareStatement(sql.toString())){	
+			pStmt.setInt(1, matchId);
+				
+			ResultSet rs = pStmt.executeQuery();
+			
+			if(rs.next()) {
+				match = mapMatch(rs);
+			}
+				
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return match;
+	}
 }

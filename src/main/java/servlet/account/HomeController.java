@@ -15,9 +15,8 @@ public class HomeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-		    session.removeAttribute("login"); 
+		    session.removeAttribute("login");
 		}
-
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/jsp/account/index.jsp");
 		dispatcher.forward(request, response);
 	}
