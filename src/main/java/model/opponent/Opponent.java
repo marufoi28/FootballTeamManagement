@@ -4,6 +4,10 @@ public class Opponent {
 	private int opponentId;
 	private String opponentName;
 	
+	public Opponent(int opponentId) {
+		this.opponentId = opponentId;
+	}
+	
 	public Opponent(int opponentId, String opponentName) {
 		this.opponentId = opponentId;
 		this.opponentName = opponentName;

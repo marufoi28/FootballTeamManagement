@@ -7,6 +7,10 @@ public class Field {
 	private String fieldName;
 	private Address address;
 	
+	public Field(int fieldId) {
+		this.fieldId = fieldId;
+	}
+	
 	public Field(int fieldId, String fieldName) {
 		this.fieldId = fieldId;
 		this.fieldName = fieldName;

@@ -17,6 +17,8 @@
             <th>天気</th>
             <th>温度</th>
             <th>湿度</th>
+            <th>編集</th>
+            <th>削除</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +38,17 @@
                 <c:if test="${not empty match.getWeather().getHumidity() }">
                   ${ match.getWeather().getHumidity()}%
                 </c:if>
+              </td>
+   			  <td>
+				<form action="EditMatchServlet" method="get">
+				  <input type="hidden" name="matchId" value="${match.getMatchId()}" />
+				  <button class="btn btn-edit" type="submit"> <i class="bi bi-pen"></i></button>
+				</form>
+			  </td>
+			  <td>
+			    <button class="btn btn-delete open" type="submit">
+		          <i class="bi bi-trash3"></i>
+	            </button>
               </td>
             </tr>
           </c:forEach>
