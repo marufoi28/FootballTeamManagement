@@ -1,6 +1,8 @@
 package servlet.match;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -32,6 +34,23 @@ public class EditMatchServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		Match editMatch = AddMatchServlet.createMatch(request);
+		request.setAttribute("match", editMatch);
+		List<String> errorMessages = new ArrayList<>();
+//				AddMatchServlet.checkValidationErrors(editMatch);
+		
+		if (!errorMessages.isEmpty()) {
+			request.setCharacterEncoding("UTF-8");
+			request.setAttribute("errorMessages", errorMessages);
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(MATCH_FORM_JSP_PATH);
+			dispatcher.forward(request, response);
+			return;
+		}
+		MatchService service = new MatchService();
+		service.editMatch(editMatch);
+		
+		response.sendRedirect(request.getContextPath() + "/SearchMatchServlet");
 	}
-
 }
