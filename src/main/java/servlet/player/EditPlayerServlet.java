@@ -8,7 +8,6 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import model.player.AddPlayer;
 import model.player.Player;
@@ -34,7 +33,6 @@ public class EditPlayerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
-		HttpSession session = request.getSession();
 		AddPlayer editPlayer = AddPlayerServlet.createAddPlayer(request);
 		AddPlayerServlet.saveRequest(request, editPlayer);
 		List<String> errorMessages = AddPlayerServlet.checkValidationErrors(editPlayer);
@@ -42,11 +40,6 @@ public class EditPlayerServlet extends HttpServlet {
 		if (!errorMessages.isEmpty()) {
 			request.setCharacterEncoding("UTF-8");
 			request.setAttribute("errorMessages", errorMessages);
-			
-			/* デバッグ */
-			for(String errorMessage : errorMessages) {
-				System.out.println(errorMessage);
-			}
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher(PLAYER_FORM_JSP_PATH);
 			dispatcher.forward(request, response);
