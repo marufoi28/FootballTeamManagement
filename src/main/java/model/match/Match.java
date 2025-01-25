@@ -8,17 +8,17 @@ import model.opponent.Opponent;
 import model.weather.Weather;
 
 public class Match {
-	private int matchId;
+	private Integer matchId;
 	private Field field;
 	private LocalDate eventDate;
 	private LocalTime eventStartTime;
 	private Weather weather; 
 	private Opponent opponent;
 	private LocalDate registerDate;
-	public int getMatchId() {
+	public Integer getMatchId() {
 		return matchId;
 	}
-	public void setMatchId(int matchId) {
+	public void setMatchId(Integer matchId) {
 		this.matchId = matchId;
 	}
 	public Field getField() {
