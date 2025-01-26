@@ -37,9 +37,7 @@ public class EditMatchServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		Match editMatch = AddMatchServlet.createMatch(request);
 		request.setAttribute("match", editMatch);
-		List<String> errorMessages = new ArrayList<>();
-//				AddMatchServlet.checkValidationErrors(editMatch);
-		
+		List<String> errorMessages = new ArrayList<>();		
 		if (!errorMessages.isEmpty()) {
 			request.setCharacterEncoding("UTF-8");
 			request.setAttribute("errorMessages", errorMessages);

@@ -28,4 +28,4 @@ FROM
         ON m.opponent_id = o.opponent_id
     LEFT OUTER JOIN ADDRESS a
         ON a.address_id = f.field_id
-WHERE m.match_id = ?
+ORDER BY m.event_date ASC

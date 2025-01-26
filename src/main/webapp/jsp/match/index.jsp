@@ -6,11 +6,12 @@
   <%@ include file="menu.jsp" %>
   <main class="main">
     <h2 class="page-title">試合予定</h2>
-    <div>
+    <div class="search-match-area">
     	<form action="SearchMatchServlet" method="get">
-    	  <label for="">過去の試合も表示</label>
-    	  <input type="checkbox" id="" name="" value="true">
-    	  <button type="submit">検索</button>
+    	  <label for="showPastMatches">過去の試合も表示</label>
+    	  <input type="checkbox" id="showPastMatches" name="showPastMatches" value="true"
+    	  <c:if test="${ showPastMatches }">checked</c:if>>
+    	  <button class="btn btn-search" type="submit" id="searchButton">検索</button>
     	</form>
     </div>
     <div class="match-list-table-area">

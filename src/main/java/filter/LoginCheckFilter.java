@@ -47,10 +47,12 @@ public class LoginCheckFilter implements Filter {
 		            chain.doFilter(request, response); 
 		            return; 
 		        }
-		    }
 
-		    request.setAttribute("errorMessage", "ログインされていません");
-		    httpResponse.sendRedirect("LoginServlet");
+		        if (!path.startsWith(httpRequest.getContextPath() + "/LoginServlet")) {
+	            	request.setAttribute("errorMessage", "ログインされていません");
+	            	httpResponse.sendRedirect(httpRequest.getContextPath() + "/LoginServlet");
+	        	}
+		    }
 		} catch (Exception e) {
 		    e.printStackTrace(); 
 		    httpResponse.sendRedirect("LoginServlet");

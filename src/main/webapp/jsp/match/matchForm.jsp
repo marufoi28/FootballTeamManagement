@@ -60,6 +60,20 @@
   	    <input type="time" id="eventStartTime" name="eventStartTime" value="${ match.getEventStartTime() != null ? match.getEventStartTime() : '12:00'}">
   	  </div>
   	  
+  	  <c:if test="${!empty match.getMatchId()}">
+  	    <p>試合結果</p>
+        
+        <div class="form-item">
+  	      <label class="block" for="ourTeamScore">自チームスコア</label>
+  	      <input type="number" id="ourScore" name="ourScore" value="${ match.getOurScore() != null ? match.getOurScore() : null}"/>
+  	    </div>
+        
+        <div class="form-item">
+  	      <label class="block" for="opponentScore">相手チームスコア</label>
+  	      <input type="number" id="opponentScore" name="opponentScore" value="${ match.getOpponentScore() != null ? match.getOpponentScore() : null}"/>
+  	    </div>
+      </c:if>
+  	  
   	  <div class="submit-area">
   	    <button type="submit" class="btn btn-submit">
   	  	  <c:choose>
@@ -69,6 +83,7 @@
   	  </button>
   	    <button type="button" class="btn btn-back back">戻る</button>
   	  </div>
+  	  
   	</form>
 </main>
 </div>

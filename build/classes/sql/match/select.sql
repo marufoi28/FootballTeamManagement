@@ -8,8 +8,9 @@ SELECT
     , m.event_start_time
     , HOUR(m.event_start_time) AS hour
     , MINUTE(m.event_start_time) AS minute
-    , m.weather_id
     , m.opponent_id
+    , m.our_score
+    , m.opponent_score
     , f.field_name
     , f.address_id
     , o.opponent_id

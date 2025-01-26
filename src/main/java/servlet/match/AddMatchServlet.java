@@ -66,12 +66,16 @@ public class AddMatchServlet extends HttpServlet {
 		Integer opponentId = request.getParameter("opponentId") != null && !request.getParameter("opponentId").isEmpty() ? Integer.parseInt(request.getParameter("opponentId")) : null;
 		Integer fieldId = request.getParameter("fieldId") != null && !request.getParameter("fieldId").isEmpty() ? Integer.parseInt(request.getParameter("fieldId")) : null;
 		LocalTime eventStartTime = request.getParameter("eventStartTime") != null && !request.getParameter("eventStartTime").isEmpty() ? LocalTime.parse(request.getParameter("eventStartTime")) : null;
+		Integer ourScore = request.getParameter("ourScore") != null && !request.getParameter("ourScore").isEmpty() ? Integer.parseInt(request.getParameter("ourScore")) : 0;
+		Integer opponentScore = request.getParameter("opponentScore") != null && !request.getParameter("opponentScore").isEmpty() ? Integer.parseInt(request.getParameter("opponentScore")) : 0;
 		
 		match.setMatchId(matchId);
 		match.setEventDate(eventDate);
 		match.setOpponent(new Opponent(opponentId));
 		match.setField(new Field(fieldId));
 		match.setEventStartTime(eventStartTime);
+		match.setOurScore(ourScore);
+		match.setOpponentScore(opponentScore);
 		
 		return match;
 	}

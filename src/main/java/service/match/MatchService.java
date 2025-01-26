@@ -18,8 +18,8 @@ public class MatchService {
 		this.matchEditDAO = new MatchEditDAO();
 	}
 	
-	public List<Match> searchMatches() throws Exception{
-		return matchSearchDAO.getMatches();
+	public List<Match> searchMatches(Boolean isPastMatches) throws Exception{
+		return matchSearchDAO.getMatches(isPastMatches);
 	}
 	
 	public void addMatch(Match match) {
