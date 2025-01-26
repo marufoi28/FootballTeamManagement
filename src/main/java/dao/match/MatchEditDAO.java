@@ -26,7 +26,9 @@ public class MatchEditDAO {
 				pStmt.setDate(2, Date.valueOf(match.getEventDate()));
 				pStmt.setTime(3, Time.valueOf(match.getEventStartTime()));
 				pStmt.setInt(4, match.getOpponent().getOpponentId());
-				pStmt.setInt(5, match.getMatchId());
+				pStmt.setInt(5, match.getOurScore());
+				pStmt.setInt(6, match.getOpponentScore());
+				pStmt.setInt(7, match.getMatchId());
 				
 				int affectedRows = pStmt.executeUpdate();
 				if(affectedRows == 0) {

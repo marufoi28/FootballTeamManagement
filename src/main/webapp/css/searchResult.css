@@ -28,7 +28,7 @@
 }
 
 .player-list-table-area {
-	width: 100%;
+	width: 95%;
 	height: 400px;
 	overflow-y: auto;
 	overflow-x: hidden;

@@ -20,11 +20,14 @@ public class SearchMatchServlet extends HttpServlet {
 	private static final int MAX_MATCHES_PER_PAGE = 10;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
+		Boolean isPastMatches = "true".equals(request.getParameter("showPastMatches"));
+		request.setAttribute("showPastMatches", isPastMatches);
 		MatchService service = new MatchService();
 		List<Match> matches = new ArrayList<>();
+		
 		try {
-			matches = service.searchMatches();
+			matches = service.searchMatches(isPastMatches);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

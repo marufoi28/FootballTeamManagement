@@ -15,6 +15,8 @@ public class Match {
 	private Weather weather; 
 	private Opponent opponent;
 	private LocalDate registerDate;
+	private Integer ourScore;
+	private Integer opponentScore;
 	public Integer getMatchId() {
 		return matchId;
 	}
@@ -56,5 +58,17 @@ public class Match {
 	}
 	public void setOpponent(Opponent opponent) {
 		this.opponent = opponent;
+	}
+	public Integer getOurScore() {
+		return ourScore;
+	}
+	public void setOurScore(Integer ourScore) {
+		this.ourScore = ourScore;
+	}
+	public Integer getOpponentScore() {
+		return opponentScore;
+	}
+	public void setOpponentScore(Integer opponentScore) {
+		this.opponentScore = opponentScore;
 	}
 }

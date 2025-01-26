@@ -20,10 +20,16 @@ import util.SqlFileLoader;
 public class MatchSearchDAO {
 	public static final String SQL_MATCH = "sql/match";
 	
-	public List<Match> getMatches() throws Exception{
+	public List<Match> getMatches(Boolean isPastMatches) throws Exception{
 		List<Match> matches = new ArrayList<>();
 		
-		String sqlQuery = SqlFileLoader.getSqlQuery("select", SQL_MATCH);
+		String sqlQuery;
+		if(isPastMatches) {
+			sqlQuery = SqlFileLoader.getSqlQuery("selectContainPastMatches", SQL_MATCH);
+		} else {
+			sqlQuery = SqlFileLoader.getSqlQuery("select", SQL_MATCH);
+		}
+		
 		StringBuilder sql = new StringBuilder(sqlQuery);
 		
 		JdbcUtil.loadJDBCDriver();
@@ -54,6 +60,8 @@ public class MatchSearchDAO {
 		match.setRegisterDate(LocalDate.now());
 		match.setWeather(service.getWeather(rs.getString("prefecture_en") + "," + rs.getString("locale"), LocalDate.parse(rs.getString("event_date"))));
 		match.setOpponent(new Opponent(rs.getInt("opponent_id"), rs.getString("opponent_name")));
+		match.setOurScore(rs.getInt("our_score"));
+		match.setOpponentScore(rs.getInt("opponent_score"));
 		return match;
 	}
 	

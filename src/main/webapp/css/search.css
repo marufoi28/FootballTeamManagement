@@ -61,3 +61,15 @@
 .search-btn-area {
 	margin: 20px 0 0 10px;
 }
+
+/* 試合検索 */
+.search-match-area {
+	width: 40%;
+	margin-right: auto;
+	margin-left: 80px;
+	padding : 20px;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

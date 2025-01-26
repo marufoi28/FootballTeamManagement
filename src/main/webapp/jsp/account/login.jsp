@@ -11,8 +11,8 @@
 
 <div class="login-area">
 	<form action="LoginServlet" method="post">
-		ユーザーID:<input type="text" name="userId"><br>
-		パスワード:<input type="password" name="pass"><br>
+		ユーザーID:<input type="text" name="userId" autocomplete="username"><br>
+		パスワード:<input type="password" name="pass" autocomplete="current-password"><br>
 		<input type="submit" class="btn btn-login" value="ログイン">
 	</form>
 </div>
